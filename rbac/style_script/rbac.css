@@ -1,0 +1,16 @@
+
+.rbac-hide {
+    display: none;
+}
+
+.rbac-menu-item .rbac-menu-body {
+    margin-left: 20px;
+}
+
+.rbac-menu-body a {
+    display: block;
+}
+
+.rbac-menu-body a.rbac-active {
+    color: red;
+}

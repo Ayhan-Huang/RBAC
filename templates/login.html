@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post">
+    {% csrf_token %}
+    <p>用户名：</p>
+    <input type="text" name="username">
+    <p>密码：</p>
+    <input type="password" name="password">
+    <p>
+        <button>提交</button>&nbsp;{{ error }}
+    </p>
+</form>
+
+</body>
+</html>

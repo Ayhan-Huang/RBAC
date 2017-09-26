@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="/rbac/permissions/new"><button>新增</button></a>
+<table border="1">
+    <tr>
+        <td>权限</td>
+        <td>url</td>
+        <td>所属菜单</td>
+        <td colspan="2">操作</td>
+    </tr>
+    {% for permission in permission_list %}
+        <tr>
+            <td>{{ permission.title }}</td>
+            <td>{{ permission.url }}</td>
+            <td>{{ permission.menu }}</td>
+            <td><a href="/rbac/permissions/edit/{{ permission.id }}">编辑</a></td>
+            <td><a href="/rbac/permissions/delete/{{ permission.id }}">删除</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="/rbac/roles/new"><button>新增</button></a>
+<table border="1">
+    <tr>
+        <td>角色</td>
+        <td>权限</td>
+        <td colspan="2">操作</td>
+    </tr>
+    {% for role in role_list %}
+        <tr>
+            <td>{{ role.title }}</td>
+            <td>{{ role.permissions.all }}</td>
+            <td><a href="/rbac/roles/edit/{{ role.id }}">编辑</a></td>
+            <td><a href="/rbac/roles/delete/{{ role.id }}">删除</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

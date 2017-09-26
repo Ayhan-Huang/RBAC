@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="/rbac/menus/new"><button>新增</button></a>
+<table border="1">
+    <tr>
+        <td>菜单</td>
+        <td>父级菜单</td>
+        <td colspan="2">操作</td>
+    </tr>
+    {% for menu in menu_list %}
+        <tr>
+            <td>{{ menu.title }}</td>
+            <td>{{ menu.parent }}</td>
+            <td><a href="/rbac/menus/edit/{{ menu.id }}">编辑</a></td>
+            <td><a href="/rbac/menus/delete/{{ menu.id }}">删除</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

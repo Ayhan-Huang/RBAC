@@ -1,0 +1,25 @@
+{% load custom_tag %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{# 通过调用自定义标签中的函数，导入rbac中的css和js #}
+    <style>
+        {% rbac_css %}
+    </style>
+    <script src="{% static 'jquery-3.2.1.js' %}"></script>
+    <script>
+        $(function () {
+            {% rbac_js %}
+        })
+    </script>
+
+</head>
+<body>
+
+{% rbac_menu request %}
+
+</body>
+</html>
