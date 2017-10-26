@@ -89,7 +89,7 @@ def get_menu_html(menu_data):
     option_str = """
           <div class='rbac-menu-item'>
                 <div class='rbac-menu-header'>{menu_title}</div>
-                <div class='rbac-menu-body {active}'>{sub_menu}</div>
+                <div class='rbac-menu-body {display}'>{sub_menu}</div>
             </div>
     """
 
@@ -123,9 +123,14 @@ def get_menu_html(menu_data):
                                             active="rbac-active" if item['open'] else "",
                                             permission_title=item['title'])
             else:
+                if item.get('children'):
+                    sub_menu = get_menu_html(item['children'])
+                else:
+                    sub_menu = ""
+
                 menu_html += option_str.format(menu_title=item['title'],
-                                               sub_menu=get_menu_html(item['children']),
-                                               active="" if item['open'] else "rbac-hide")
+                                               sub_menu=sub_menu,
+                                               display="" if item['open'] else "rbac-hide")
 
     return menu_html
 
