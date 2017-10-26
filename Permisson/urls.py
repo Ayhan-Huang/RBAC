@@ -22,5 +22,9 @@ urlpatterns = [
     url(r'^login/$', views.login),
     url(r'^test/$', views.test),
     url(r'^index/$', views.index),
+    url(r'^order/$', views.index),
+    url(r'^survey/produce/$', views.index),
+    url(r'^stock/detail/$', views.index),
+    url(r'^produce/detail/$', views.index),
     url(r'^rbac/', include('rbac.urls') )
 ]
