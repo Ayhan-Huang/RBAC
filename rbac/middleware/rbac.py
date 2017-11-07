@@ -34,6 +34,7 @@ class RbacMiddleware(MiddlewareMixin):
                 return None
 
         # 如果未取到permission_url, 重定向至登录；为了可移植性，将登录url写入配置
+        # 另外，Login必须设置白名单，否则访问login会反复重定向
         if not permission_url:
             return redirect(settings.LOGIN_URL)
 

@@ -88,7 +88,9 @@ def get_menu_html(menu_data):
     """显示：菜单 + [子菜单] + 权限(url)"""
     option_str = """
           <div class='rbac-menu-item'>
-                <div class='rbac-menu-header'>{menu_title}</div>
+                <div class='rbac-menu-header'>
+                <span class='glyphicon glyphicon-folder-{status}'>
+                {menu_title}</div>
                 <div class='rbac-menu-body {display}'>{sub_menu}</div>
             </div>
     """
@@ -130,7 +132,8 @@ def get_menu_html(menu_data):
 
                 menu_html += option_str.format(menu_title=item['title'],
                                                sub_menu=sub_menu,
-                                               display="" if item['open'] else "rbac-hide")
+                                               display="" if item['open'] else "rbac-hide",
+                                               status="open" if item['open'] else "close")
 
     return menu_html
 
